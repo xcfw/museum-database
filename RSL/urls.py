@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^museum/', include('museum.urls')),
 	url(r'^', include('museum.urls')),
+	url(r'^nested_admin/', include('nested_admin.urls')),
 ]
