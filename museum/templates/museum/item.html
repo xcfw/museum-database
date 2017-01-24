@@ -1,0 +1,46 @@
+{% extends "museum/base.html" %}
+{% block content %}
+<div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            {{ item.title }} <small>{{ item.reference }}</small>
+                        </h1>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-6">
+						<h3>Details</h3>
+                        <p>
+							<b>Type: </b>{{ item.type }}  </br>
+							<b>Description: </b>{{ item.description }} </br>
+							<b>Condition: </b>{{ item.condition }} </br>
+							<b>Value: </b> {{ item.value }} </br>
+							<b>Era: </b> {{ collection.era }} </br>
+							<b>Location:</b> {{ collection.location }}</b> 
+						</p>	
+                    </div>
+                </div>
+                <!-- /.row --><hr>
+				<div class="row">
+                    <div class="col-lg-12">
+						<h3>Item Images</h3></br>
+						{% for image in images %}
+						<a href="{{image.url}}"><img src="{{image.url}}" width="150" height="150" /></a>
+						{% endfor %}
+					</div>
+
+                
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+	
+{% endblock %}

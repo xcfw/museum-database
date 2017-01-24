@@ -26,3 +26,10 @@ def collectionView(request, ref):
 	images = CollectionImage.objects.filter(item_id=collection.id)
 	items = Item.objects.filter(collection_id=collection.id)
 	return render(request, 'museum/collection.html', {'collection': collection, 'images': images, 'items': items })
+	
+#display single Item Page
+def itemView(request, ref):
+	item = get_object_or_404(Item, reference=ref)
+	images = ItemImage.objects.filter(item_id=item.id)
+	collection = get_object_or_404(Collection, id=item.collection_id.id)
+	return render(request, 'museum/item.html', {'item': item, 'images': images, 'collection': collection })

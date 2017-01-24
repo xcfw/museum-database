@@ -8,5 +8,6 @@ urlpatterns = [
 	url(r'^collections/$', views.collections, name='collections'),
 	url(r'^items/$', views.items, name='items'),
 	url(r'^collections/(?P<ref>[%&+ \w]+)/$', views.collectionView, name='collection'),
+	url(r'^items/(?P<ref>[%&+ \w]+)/$', views.itemView, name='item'),
 ]
 

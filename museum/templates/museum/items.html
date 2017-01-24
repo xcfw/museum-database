@@ -30,7 +30,7 @@
                                 <tbody>
 								{% for item in items %}
                                     <tr>
-                                        <td>{{ item.reference }}</td>
+                                        <td><b><a href="/items/{{ item.reference }}">{{ item.reference }}</a></b></td>
                                         <td>{{ item.title }}</td>
                                         <td>{{ item.type }}</td>
                                         <td>{{ item.condition }}</td>

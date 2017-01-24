@@ -41,13 +41,13 @@
                     <div class="col-lg-6">
 						<div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><a href="#">{{item.reference}}</a></h3>
+                                <h3 class="panel-title"><a href="/items/{{ item.reference }}">{{item.reference}}</a></h3>
                             </div>
                             <div class="panel-body">
 								<b>Title: </b>{{ item.title }}</br>
 								<b>Type: </b>{{ item.type }}
 								<p align='right'>
-								<a href="#" class="btn btn-primary btn-sm" role="button">View Details &raquo;</a>
+								<a href="/items/{{ item.reference }}" class="btn btn-primary btn-sm" role="button">View Details &raquo;</a>
 								</p>
                             </div>
                         </div>	
