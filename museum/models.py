@@ -3,6 +3,9 @@ from django.utils.safestring import mark_safe
 import os
 
 class Collection(models.Model):
+	
+	title = models.CharField(max_length=140, default=' ')
+	
 	CATEGORY_CHOICE = (
 		('NAVY', 'Navy'),
 		('ARMY', 'Army'),
@@ -57,9 +60,8 @@ class Collection(models.Model):
 			
 				ref = self.category
 				obj = Collection.objects.filter(category=self.category).order_by('-id')[0]
-				print(obj.reference)
 				incr_num = obj.reference[-4:].strip()
-				print(incr_num)
+		
 				incr_num = int(incr_num) + 1
 				num = '000' + str(incr_num)
 		
@@ -184,10 +186,8 @@ class Item(models.Model):
 				obj = Item.objects.filter(collection_id=self.collection_id).order_by('-id')[0]
 				print(obj.reference)
 				incr = obj.reference[-4:].strip()
-				print(incr)
 				
 				incr = ''.join([i for i in incr if not i.isdigit()])
-				print(incr)
 				
 				lpart = incr.rstrip('Z')
 				if not lpart:

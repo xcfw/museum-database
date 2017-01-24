@@ -1,0 +1,65 @@
+{% extends "museum/base.html" %}
+{% block content %}
+<div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            {{ collection.title }} <small>{{ collection.reference }}</small>
+                        </h1>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-6">
+						<h3>Details</h3>
+                        <p>
+							<b>Type: </b>{{ collection.type }}  </br>
+							<b>Location: </b>{{ collection.location }} </br>
+							<b>Era: </b>{{ collection.era }}
+						</p>	
+                    </div>
+					<div class="col-lg-6">
+						<p><h3>Collection Images</h3></br>
+						{% for image in images %}
+						<a href="{{image.url}}"><img src="{{image.url}}" width="150" height="150" /></a>
+						{% endfor %}
+						</p>
+					</div>
+                </div>
+                <!-- /.row --><hr>
+				<div class="row">
+                    <div class="col-lg-12">
+						<h3>Items</h3>
+                </div>
+				<div class="row">
+				{% for item in items %}
+                    <div class="col-lg-6">
+						<div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a href="#">{{item.reference}}</a></h3>
+                            </div>
+                            <div class="panel-body">
+								<b>Title: </b>{{ item.title }}</br>
+								<b>Type: </b>{{ item.type }}
+								<p align='right'>
+								<a href="#" class="btn btn-primary btn-sm" role="button">View Details &raquo;</a>
+								</p>
+                            </div>
+                        </div>	
+					</div>		
+				{% endfor %}
+                </div>
+
+                
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+	
+{% endblock %}

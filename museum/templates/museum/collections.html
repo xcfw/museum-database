@@ -1,0 +1,56 @@
+{% extends "museum/base.html" %}
+{% block content %}
+<div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Collections <small>Overview</small>
+                        </h1>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Reference</th>
+                                        <th>Title</th>
+                                        <th>Type</th>
+                                        <th>Location</th>
+										<th>Era</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+								{% for collection in collections %}
+                                    <tr>
+                                        <td><b><a href="/collections/{{collection.reference}}/">{{ collection.reference }}</a></b></td>
+                                        <td>{{ collection.title }}</td>
+                                        <td>{{ collection.type }}</td>
+                                        <td>{{ collection.location }}</td>
+										<td>{{ collection.era }}</td>
+                                    </tr>
+								{% endfor %}
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+							
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+	
+{% endblock %}
