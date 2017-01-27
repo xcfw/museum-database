@@ -18,17 +18,17 @@ class ItemImageAdmin(nested_admin.NestedTabularInline):
 
 class ItemAdmin(nested_admin.NestedStackedInline):
 	model = Item
-	fields = ('reference', 'title', 'description', 'condition', 'value', 'type')
-	readonly_fields = ('reference',)
+	fields = ('reference', 'title', 'description', 'type', 'condition', 'value', 'image_tag', 'image')
+	readonly_fields = ('reference', 'image_tag',)
 	extra = 0
 	inlines = [ItemImageAdmin]
 	
 class CollectionAdmin(nested_admin.NestedModelAdmin):
-	fields = ['reference', 'title', 'category', 'type', 'location', 'era']
+	fields = ['reference', 'title', 'category', 'type', 'location', 'era', 'image_tag', 'image']
 	
 	inlines = [CollectionImageAdmin, ItemAdmin]
 	
-	readonly_fields = ('reference',)
+	readonly_fields = ('reference','image_tag')
 	list_display = ('reference', 'category', 'type', 'location', 'era',)
 	
 

@@ -25,6 +25,7 @@
                     </div>
 					<div class="col-lg-6">
 						<p><h3>Collection Images</h3></br>
+						<a href="{{collection.url}}"><img src="{{collection.url}}" width="150" height="150" /></a>
 						{% for image in images %}
 						<a href="{{image.url}}"><img src="{{image.url}}" width="150" height="150" /></a>
 						{% endfor %}
@@ -44,6 +45,7 @@
                                 <h3 class="panel-title"><a href="/items/{{ item.reference }}">{{item.reference}}</a></h3>
                             </div>
                             <div class="panel-body">
+								<img src="{{item.url}}" width="125" height="125" align ='left' />
 								<b>Title: </b>{{ item.title }}</br>
 								<b>Type: </b>{{ item.type }}
 								<p align='right'>

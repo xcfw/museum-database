@@ -49,6 +49,15 @@ class Collection(models.Model):
 	
 	reference = models.CharField(max_length=10, default=' ')
 	
+	image = models.ImageField(upload_to = 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
+
+	def url(self):
+		return os.path.join('/','static/museum/database/', os.path.basename(str(self.image)))
+	
+	def image_tag(self):
+		return mark_safe('<img src="{}" width="150" height="150" />'.format(self.url()) ) 	
+	
+	
 	def save(self, *args, **kwargs):
 		if not self.pk:
 			obj = Collection.objects.filter(category=self.category).count()
@@ -171,6 +180,14 @@ class Item(models.Model):
 	condition = models.CharField(max_length=20, choices=CONDITION_CHOICES)
 	
 	value = models.CharField(max_length=20)
+	
+	image = models.ImageField(upload_to = 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
+
+	def url(self):
+		return os.path.join('/','static/museum/database/', os.path.basename(str(self.image)))
+	
+	def image_tag(self):
+		return mark_safe('<img src="{}" width="150" height="150" />'.format(self.url()) ) 
 	
 	def save(self, *args, **kwargs):
 		if not self.pk:
