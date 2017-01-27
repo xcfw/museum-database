@@ -25,7 +25,7 @@ SECRET_KEY = '+yi(ahkp)y(2_^+a8+*m*e+u74m8m4scrmeww@o%g9otdg_!nx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [wjmccann.pythonanywhere.com,]
+ALLOWED_HOSTS = ['localhost','wjmccann.pythonanywhere.com',]
 
 
 # Application definition
@@ -121,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/wjmccann/museum-database/museum/static/'
 
 #haystack settings
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
