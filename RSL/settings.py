@@ -123,6 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #haystack settings
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
 HAYSTACK_CONNECTIONS = {
 	'default': {
 		'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
