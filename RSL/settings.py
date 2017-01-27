@@ -25,7 +25,7 @@ SECRET_KEY = '+yi(ahkp)y(2_^+a8+*m*e+u74m8m4scrmeww@o%g9otdg_!nx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [wjmccann.pythonanywhere.com,]
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'museum.apps.MuseumConfig',
+	'museum',
 	'nested_admin',
 	'haystack',
 ]
