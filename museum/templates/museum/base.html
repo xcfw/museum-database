@@ -64,10 +64,13 @@
 					<li> &nbsp;
 					</li>
                     <li>
+						<form action="/search" method="get">
                         <div class="form-group input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
-                            </div>
+							
+                                <input type="text" class="form-control" name="q"><span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
+							
+                        </div>
+						</form>
                     </li>
                     <li>
                        <a href="{% url 'museum:index' %}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>

@@ -1,0 +1,44 @@
+{% extends "museum/base.html" %}
+{% block content %}
+<div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Search Results <small></small>
+                        </h1>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-6">
+					{% for result in page.object_list %}
+						<div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a href="/collections/{{ result.object.reference }}">{{result.object.reference}}</a></h3>
+                            </div>
+                            <div class="panel-body">
+								<b>Title: </b>{{ result.object.title }}</br>
+								<b>Type: </b>{{ result.object.type }}
+								<p align='right'>
+								<a href="/collections/{{ result.object.reference }}" class="btn btn-primary btn-sm" role="button">View Details &raquo;</a>
+								</p>
+                            </div>
+                        </div>
+					
+					{% empty %}
+					No results found.
+					{% endfor %}
+                    </div>
+                </div>
+
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+	
+{% endblock %}

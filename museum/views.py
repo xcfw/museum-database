@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
 	collections = Collection.objects.all().count()
@@ -10,13 +11,29 @@ def index(request):
 	
 #display all Collections
 def collections(request):
-	collections = Collection.objects.all()
+	collections_list = Collection.objects.all()
+	page = request.GET.get('page', 1)
+	paginator = Paginator(collections_list, 20)
+	try:
+		collections = paginator.page(page)
+	except PageNotAnInteger:
+		collections = paginator.page(1)
+	except EmptyPage:
+		collections = paginator.page(paginator.num_pages)
 	
 	return render(request, 'museum/collections.html', { 'collections': collections })
 	
 #display all items	
 def items(request):
-	items = Item.objects.all()
+	items_list = Item.objects.all()
+	page = request.GET.get('page', 1)
+	paginator = Paginator(items_list, 20)
+	try:
+		items = paginator.page(page)
+	except PageNotAnInteger:
+		items = paginator.page(1)
+	except EmptyPage:
+		items = paginator.page(paginator.num_pages)
 	
 	return render(request, 'museum/items.html', { 'items': items })
 

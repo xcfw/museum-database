@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'museum.apps.MuseumConfig',
 	'nested_admin',
+	'haystack',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#haystack settings
+HAYSTACK_CONNECTIONS = {
+	'default': {
+		'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+		'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+	},
+}

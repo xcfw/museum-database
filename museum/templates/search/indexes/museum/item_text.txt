@@ -1,0 +1,5 @@
+{{ object.reference }}
+{{ object.title }}
+{{ object.description }}
+{{ object.type }}
+{{ object.condition }}

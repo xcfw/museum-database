@@ -17,18 +17,18 @@ class Collection(models.Model):
 	category = models.CharField(max_length=4, choices=CATEGORY_CHOICE)
 	
 	TYPE_CHOICE = (
-		('ART', 'Art'),
-		('BOOK', 'Book'),
-		('DIARY', 'Diary'),
-		('DISPLAY', 'Display'),
-		('EQUIPMENT', 'Equipment'),
-		('FLAG', 'Flag'),
-		('WEAPON', 'Weapon'),
-		('MEDAL', 'Medal'),
-		('MODEL', 'Model'),
-		('INSIGNIA', 'Insignia'),
-		('PLAQUE', 'Plaque'),
-		('UNIFORM', 'Uniform'),	
+		('Art', 'Art'),
+		('Book', 'Book'),
+		('Diary', 'Diary'),
+		('Display', 'Display'),
+		('Equipment', 'Equipment'),
+		('Flag', 'Flag'),
+		('Weapon', 'Weapon'),
+		('Medal', 'Medal'),
+		('Modern', 'Model'),
+		('Insignia', 'Insignia'),
+		('Plaque', 'Plaque'),
+		('Uniform', 'Uniform'),	
 	)
 		
 	type = models.CharField(max_length=20, choices=TYPE_CHOICE)
@@ -36,13 +36,13 @@ class Collection(models.Model):
 	location = models.CharField(max_length=50, default=' ')
 	
 	ERA_CHOICES = (
-		('COLONIAL', 'Colonial'),
-		('BOER', 'Boer War'),
+		('Colonial', 'Colonial'),
+		('Boer War', 'Boer War'),
 		('WW1', 'World War 1'),
 		('WW2', 'World War 2'),
-		('KOREA', 'Korean War'),
-		('VIETNAM', 'Vietnam War'),
-		('MODERN', 'Post 1975'),
+		('Korean War', 'Korean War'),
+		('Vietnam War', 'Vietnam War'),
+		('Post 1975', 'Post 1975'),
 	)
 	
 	era = models.CharField(max_length=15, choices=ERA_CHOICES, default=' ')
@@ -92,67 +92,67 @@ class Item(models.Model):
 	
 	TYPE_CHOICE = (
 		('Art', (
-				('PAINTING', 'Painting'),
-				('DRAWING', 'Drawing'),
-				('SCULPTURE', 'Sculpture'),
-				('POSTER', 'Poster'),
+				('Painting', 'Painting'),
+				('Drawing', 'Drawing'),
+				('Sculpture', 'Sculpture'),
+				('Poster', 'Poster'),
 			)
 		),
 		('Book', (
-				('BOOK', 'Book'),
-				('MAGAZINE', 'Magazine'),
-				('JOURNAL', 'Journal'),
-				('REFERENCE', 'Reference'),
-				('COMIC', 'Comic'),
+				('Book', 'Book'),
+				('Magazine', 'Magazine'),
+				('Journal', 'Journal'),
+				('Reference', 'Reference'),
+				('Comic', 'Comic'),
 			)
 		),
-		('DIARY', 'Diary'),
-		('DISPLAY', 'Display'),
+		('Diary', 'Diary'),
+		('Display', 'Display'),
 		('Equipment', (
-				('HELMET', 'Helemet'),
-				('BINOCULARS', 'Binoculars'),
-				('CANTEEN', 'Canteen'),
-				('BAG', 'Bag'),
-				('PACK', 'Pack'),
-				('WEBBING', 'Webbing'),
+				('Helmet', 'Helemet'),
+				('Binoculars', 'Binoculars'),
+				('Canteen', 'Canteen'),
+				('Bag', 'Bag'),
+				('Pack', 'Pack'),
+				('Webbing', 'Webbing'),
 			)
 		),
 		('Weapon', (
-				('AXE', 'Axe'),
-				('GRENADE', 'Grenade'),
-				('CANNON', 'Cannon'),
-				('KNIFE', 'Knife'),
-				('RIFLE', 'Rifle'),
-				('PISTOL', 'Pistol'),
-				('SWORD', 'Sword'),
-				('DAGGER', 'Dagger'),
+				('Axe', 'Axe'),
+				('Grenade', 'Grenade'),
+				('Cannon', 'Cannon'),
+				('Knife', 'Knife'),
+				('Rifle', 'Rifle'),
+				('Pistol', 'Pistol'),
+				('Sword', 'Sword'),
+				('Dagger', 'Dagger'),
 			)
 		),
-		('FLAG', 'Flag'),
-		('MEDAL', 'Medal'),
+		('Flag', 'Flag'),
+		('Medal', 'Medal'),
 		('Model', (
-				('AIRPLANE', 'Airplane'),
-				('HELICOPTER', 'Helicopter'),
-				('SHIP', 'Ship'),
-				('SUBMARINE', 'Submarine'),
-				('TANK', 'Tank'),
+				('Airplane', 'Airplane'),
+				('Helicopter', 'Helicopter'),
+				('Ship', 'Ship'),
+				('Submarine', 'Submarine'),
+				('Tank', 'Tank'),
 				('APC', 'APC'),
-				('JEEP', 'Jeep'),
+				('Jeep', 'Jeep'),
 			)
 		),
-		('INSIGNIA', 'Insignia'),
-		('PLAQUE', 'Plaque'),
+		('Insignia', 'Insignia'),
+		('Plaque', 'Plaque'),
 		('Uniform', (
-				('BOOTS', 'Boots'),
-				('SOCKS', 'Socks'),
-				('TROUSERS', 'Trousers'),
-				('SKIRT', 'Skirt'),
-				('SHIRT', 'Shirt'),
-				('JACKET', 'Jacket'),
-				('TUNIC', 'Tunic'),
-				('HAT', 'Hat'),
-				('BELT', 'Belt'),
-				('BUTTON', 'Button'),
+				('Boots', 'Boots'),
+				('Socks', 'Socks'),
+				('Trousers', 'Trousers'),
+				('Skirt', 'Skirt'),
+				('Shirt', 'Shirt'),
+				('Jacket', 'Jacket'),
+				('Tunic', 'Tunic'),
+				('Hat', 'Hat'),
+				('Belt', 'Belt'),
+				('Button', 'Button'),
 			)
 		),		
 	)
@@ -160,12 +160,12 @@ class Item(models.Model):
 	type = models.CharField(max_length=20, choices=TYPE_CHOICE)
 	
 	CONDITION_CHOICES = (
-		('NEW', 'New'),
-		('EXCELLENT', 'Excellent'),
-		('VERYGOOD', 'Very Good'),
-		('AVERAGE', 'Average'),
-		('BELOWAVERAGE', 'Below Average'),
-		('POOR', 'Poor'),
+		('New', 'New'),
+		('Excellent', 'Excellent'),
+		('Very Good', 'Very Good'),
+		('Average', 'Average'),
+		('Below Average', 'Below Average'),
+		('Poor', 'Poor'),
 	)
 	
 	condition = models.CharField(max_length=20, choices=CONDITION_CHOICES)

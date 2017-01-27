@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 
 app_name = 'museum'
@@ -9,5 +9,7 @@ urlpatterns = [
 	url(r'^items/$', views.items, name='items'),
 	url(r'^collections/(?P<ref>[%&+ \w]+)/$', views.collectionView, name='collection'),
 	url(r'^items/(?P<ref>[%&+ \w]+)/$', views.itemView, name='item'),
+	url(r'^search/', include('haystack.urls')),
+	
 ]
 

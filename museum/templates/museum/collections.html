@@ -37,11 +37,33 @@
 										<td>{{ collection.era }}</td>
                                     </tr>
 								{% endfor %}
-                                   
                                 </tbody>
                             </table>
                         </div>
-							
+						
+						{% if collections.has_other_pages %}
+							<ul class="pagination">
+								{% if collections.has_previous %}
+									<li><a href="?page={{ collections.previous_page_number }}">&laquo;</a></li>
+								{% else %}
+									<li class="disabled"><span>&laquo;</span></li>
+								{% endif %}
+								{% for i in collections.paginator.page_range %}
+									{% if collections.number == i %}
+										<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+									{% else %}
+										<li><a href="?page={{ i }}">{{ i }}</a></li>
+									{% endif %}
+								{% endfor %}
+								{% if collections.has_next %}
+									<li><a href="?page={{ collections.next_page_number }}">&raquo;</span></li>
+								{% else %}
+									<li class="disabled"><span>&raquo;</span></li>
+								{% endif %}
+							</ul>
+						{% endif %}
+
+						
                     </div>
                 </div>
                 <!-- /.row -->

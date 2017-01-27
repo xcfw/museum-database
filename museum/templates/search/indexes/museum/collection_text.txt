@@ -1,0 +1,5 @@
+{{ object.category }}
+{{ object.title }}
+{{ object.type }}
+{{ object.type }}
+{{ object.era }}
