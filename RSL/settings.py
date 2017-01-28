@@ -123,8 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/wjmccann/museum-database/museum/static/'
 
-MEDIA_URL = '/static/museum/database'
-MEDIA_ROOT '/home/wjmccann/museum-database/museum/static/museum/database/'
+MEDIA_URL = '/static/museum/database/'
+MEDIA_ROOT = '/home/wjmccann/museum-database/museum/static/museum/database/'
 
 #haystack settings
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
