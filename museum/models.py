@@ -49,7 +49,7 @@ class Collection(models.Model):
 	
 	reference = models.CharField(max_length=10, default=' ')
 	
-	image = models.ImageField(upload_to = '', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
+	image = models.ImageField(upload_to = 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
 
 	def url(self):
 		return os.path.join('/','static/museum/database/', os.path.basename(str(self.image)))
