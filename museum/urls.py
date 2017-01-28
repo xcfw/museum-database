@@ -1,4 +1,6 @@
 from django.conf.urls import url, include
+from django.conf.urls.static import static
+from django.conf import settings
 from . import views
 
 app_name = 'museum'
@@ -11,5 +13,5 @@ urlpatterns = [
 	url(r'^items/(?P<ref>[%&+ \w]+)/$', views.itemView, name='item'),
 	url(r'^search/', include('haystack.urls')),
 	
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
