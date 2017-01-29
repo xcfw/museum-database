@@ -1,0 +1,11 @@
+appdirs==1.4.0
+Django==1.10.5
+django-haystack==2.6.0
+django-nested-admin==3.0.12
+olefile==0.44
+packaging==16.8
+Pillow==4.0.0
+pyparsing==2.1.10
+python-monkey-business==1.0.0
+six==1.10.0
+Whoosh==2.7.4

@@ -105,6 +105,7 @@ class Item(models.Model):
 				('Drawing', 'Drawing'),
 				('Sculpture', 'Sculpture'),
 				('Poster', 'Poster'),
+				('Photograph', 'Photograph'),
 			)
 		),
 		('Book', (
