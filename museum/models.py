@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.conf import settings
 import os
 
 class Collection(models.Model):
@@ -49,7 +50,7 @@ class Collection(models.Model):
 	
 	reference = models.CharField(max_length=10, default=' ')
 	
-	image = models.ImageField(upload_to = 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
+	image = models.ImageField(upload_to = settings.UPLOAD_DIR + 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
 
 	def url(self):
 		return os.path.join('/','static/museum/database/', os.path.basename(str(self.image)))
@@ -85,7 +86,7 @@ class Collection(models.Model):
 	
 class CollectionImage(models.Model):
 	item_id = models.ForeignKey(Collection, on_delete=models.CASCADE)
-	image = models.ImageField(upload_to = 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png')
+	image = models.ImageField(upload_to = settings.UPLOAD_DIR + 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png')
 
 	def url(self):
 		return os.path.join('/','static/museum/database/', os.path.basename(str(self.image)))
@@ -182,7 +183,7 @@ class Item(models.Model):
 	
 	value = models.CharField(max_length=20)
 	
-	image = models.ImageField(upload_to = 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
+	image = models.ImageField(upload_to = settings.UPLOAD_DIR + 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png', blank=True)
 
 	def url(self):
 		return os.path.join('/','static/museum/database/', os.path.basename(str(self.image)))
@@ -221,7 +222,7 @@ class Item(models.Model):
 
 class ItemImage(models.Model):
 	item_id = models.ForeignKey(Item, on_delete=models.CASCADE)
-	image = models.ImageField(upload_to = 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png')
+	image = models.ImageField(upload_to = settings.UPLOAD_DIR + 'museum/static/museum/database/', default = 'museum/static/museum/database/photo_not_available.png')
 
 	def url(self):
 		return os.path.join('/','static/museum/database/', os.path.basename(str(self.image)))
