@@ -6,6 +6,7 @@ import os
 class Collection(models.Model):
 	
 	title = models.CharField(max_length=140, default=' ')
+	description = models.TextField(default=' ')
 	
 	CATEGORY_CHOICE = (
 		('NAVY', 'Navy'),

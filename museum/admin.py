@@ -24,7 +24,7 @@ class ItemAdmin(nested_admin.NestedStackedInline):
 	inlines = [ItemImageAdmin]
 	
 class CollectionAdmin(nested_admin.NestedModelAdmin):
-	fields = ['reference', 'title', 'category', 'type', 'location', 'era', 'image_tag', 'image']
+	fields = ['reference', 'title', 'category', 'type', 'location', 'era', 'description', 'image_tag', 'image']
 	
 	inlines = [CollectionImageAdmin, ItemAdmin]
 	
