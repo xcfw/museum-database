@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -25,8 +24,7 @@ SECRET_KEY = '+yi(ahkp)y(2_^+a8+*m*e+u74m8m4scrmeww@o%g9otdg_!nx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','coolamonrsl.pythonanywhere.com',]
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,9 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'museum',
-	'nested_admin',
-	'haystack',
+    'museum',
+    'nested_admin',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -72,17 +70,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'RSL.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'xe',
+        'USER': 'VER3',
+        'PASSWORD': 'VER3',
+        'HOST': '192.168.43.205',
+        'PORT': '1521'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -102,34 +108,32 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Australia/Canberra'
+TIME_ZONE = 'Asia/Almaty'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
-
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/coolamonrsl/museum-database/museum/static/'
+STATIC_ROOT = '/home/xcfw/src/museum-database/museum/static/'
 
-UPLOAD_DIR = '/home/coolamonrsl/museum-database/'
+UPLOAD_DIR = '/home/xcfw/src/museum-database/'
 
-#haystack settings
+# haystack settings
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
 HAYSTACK_CONNECTIONS = {
-	'default': {
-		'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-		'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
-	},
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
 }
